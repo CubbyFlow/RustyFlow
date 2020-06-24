@@ -1,0 +1,16 @@
+[package]
+name = "rustyflow"
+version = "0.1.0"
+authors = ["Chris Ohk <utilforever@gmail.com>"]
+description = "2D/3D fluid simulation engine based on Jet framework in Rust."
+repository = "https://github.com/utilforever/RustyFlow"
+readme = "README.md"
+keywords = [ "physics", "dynamics", "particles", "fluids", "simulations" ]
+license = "MIT"
+edition = "2018"
+
+[lib]
+name = "rustyflow"
+path = "../../src/lib.rs"
+
+[dependencies]
