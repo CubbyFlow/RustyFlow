@@ -6,7 +6,7 @@
 
 [![codecov](https://codecov.io/gh/utilForever/RustyFlow/branch/master/graph/badge.svg)](https://codecov.io/gh/utilForever/RustyFlow)
 
-RustyFlow is re-implementation of [CubbyFlow](https://github.com/utilForever/RustyFlow) in Rust. It is voxel-based fluid simulation engine for computer games based on [Jet framework](https://github.com/doyubkim/fluid-engine-dev) that was created by [Doyub Kim](https://twitter.com/doyub).
+RustyFlow is re-implementation of [CubbyFlow](https://github.com/utilForever/CubbyFlow) in Rust. It is voxel-based fluid simulation engine for computer games based on [Jet framework](https://github.com/doyubkim/fluid-engine-dev) that was created by [Doyub Kim](https://twitter.com/doyub).
 
 ## To-do Features
 
