@@ -1,2 +1,2 @@
 [workspace]
-members = [ "build/rustyflow" ]
+members = [ "build/rustyflow", "examples" ]

@@ -1,0 +1,12 @@
+[package]
+name = "examples"
+version = "0.1.0"
+authors = ["Chris Ohk <utilforever@gmail.com>"]
+edition = "2018"
+
+[dependencies.rustyflow]
+path = "../build/rustyflow"
+
+[[bin]]
+name = "hello_fluid_sim"
+path = "hello_fluid_sim.rs"
