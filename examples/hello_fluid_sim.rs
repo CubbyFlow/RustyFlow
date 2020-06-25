@@ -63,6 +63,7 @@ pub fn draw(height_field: &[f32; BUFFER_SIZE]) {
     // Clear old prints
     print!("\r");
 
+    // Draw new buffer
     for val in buffer.iter() {
         print!("{}", val);
     }
@@ -102,6 +103,7 @@ fn main() {
         // Draw height field
         draw(&height_field);
 
+        // Wait
         thread::sleep(time::Duration::from_millis((1000 / fps) as u64));
     }
 
