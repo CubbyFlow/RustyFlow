@@ -3,8 +3,16 @@ use std::{thread, time};
 const BUFFER_SIZE: usize = 80;
 
 pub fn update_wave(time_interval: f32, x: &mut f32, speed: &mut f32) {
-    *x = time_interval;
-    *speed = time_interval;
+    *x += time_interval * (*speed);
+
+    // Boundary reflection
+    if *x > 1.0 {
+        *speed *= -1.0;
+        *x = 1.0 + time_interval * (*speed);
+    } else if *x < 0.0 {
+        *speed *= 1.0;
+        *x = 1.0 + time_interval * (*speed);
+    }
 }
 
 pub fn accumulate_wave_to_height_field(
