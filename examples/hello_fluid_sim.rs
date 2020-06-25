@@ -29,13 +29,13 @@ pub fn accumulate_wave_to_height_field(
     let end: i32 = ((x + quarter_wave_length) * (BUFFER_SIZE as f32)) as i32;
 
     for i in start..end {
-        let mut i_new: i32 = i;
-
-        if i < 0 {
-            i_new = -i - 1;
+        let i = if i < 0 {
+            -i - 1
         } else if i >= BUFFER_SIZE as i32 {
-            i_new = 2 * BUFFER_SIZE as i32 - i - 1;
-        }
+            2 * BUFFER_SIZE as i32 - i - 1
+        } else {
+            i
+        };
 
         let distance: f32 = ((i as f32 + 0.5) / BUFFER_SIZE as f32 - x).abs();
         let height: f32 = max_height
@@ -45,7 +45,7 @@ pub fn accumulate_wave_to_height_field(
                 .cos()
                 + 1.0);
 
-        height_field[i_new as usize] += height;
+        height_field[i as usize] += height;
     }
 }
 
