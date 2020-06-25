@@ -1,5 +1,7 @@
 use std::{thread, time};
 
+const BUFFER_SIZE: usize = 80;
+
 pub fn update_wave(time_interval: f32, x: &mut f32, speed: &mut f32) {
     *x = time_interval;
     *speed = time_interval;
@@ -9,14 +11,14 @@ pub fn accumulate_wave_to_height_field(
     x: f32,
     wave_length: f32,
     max_height: f32,
-    height_field: &mut [f32; 80],
+    height_field: &mut [f32; BUFFER_SIZE],
 ) {
     for height in height_field.iter_mut() {
         *height = x + wave_length + max_height;
     }
 }
 
-pub fn draw(height_field: &[f32; 80]) {
+pub fn draw(height_field: &[f32; BUFFER_SIZE]) {
     for height in height_field.iter() {
         print!("{}", height);
     }
@@ -37,7 +39,7 @@ fn main() {
     let fps: i32 = 100;
     let time_interval: f32 = 1.0 / fps as f32;
 
-    let mut height_field: [f32; 80] = [0.0; 80];
+    let mut height_field: [f32; BUFFER_SIZE] = [0.0; BUFFER_SIZE];
 
     for _i in 0..1000 {
         // March through time
