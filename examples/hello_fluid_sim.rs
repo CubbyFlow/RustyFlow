@@ -1,6 +1,9 @@
 use std::{thread, time};
 
 const BUFFER_SIZE: usize = 80;
+const GRAY_SCALE_TABLE_SIZE: usize = 10;
+const GRAY_SCALE_TABLE: [char; GRAY_SCALE_TABLE_SIZE] =
+    [' ', '.', ':', '-', '=', '+', '*', '#', '%', '@'];
 
 pub fn update_wave(time_interval: f32, x: &mut f32, speed: &mut f32) {
     *x += time_interval * (*speed);
@@ -44,15 +47,24 @@ pub fn accumulate_wave_to_height_field(
 
         height_field[i_new as usize] += height;
     }
-
-    for height in height_field.iter_mut() {
-        *height = x + wave_length + max_height;
-    }
 }
 
 pub fn draw(height_field: &[f32; BUFFER_SIZE]) {
-    for height in height_field.iter() {
-        print!("{}", height);
+    let mut buffer: [char; BUFFER_SIZE] = [' '; BUFFER_SIZE];
+
+    // Convert height field to grayscale
+    for i in 0..BUFFER_SIZE {
+        let height: f32 = height_field[i];
+        let table_index: usize = ((GRAY_SCALE_TABLE_SIZE as f32 * height).floor() as usize)
+            .min(GRAY_SCALE_TABLE_SIZE - 1);
+        buffer[i] = GRAY_SCALE_TABLE[table_index];
+    }
+
+    // Clear old prints
+    print!("\r");
+
+    for val in buffer.iter() {
+        print!("{}", val);
     }
 }
 
