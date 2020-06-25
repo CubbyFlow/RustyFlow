@@ -13,8 +13,8 @@ pub fn update_wave(time_interval: f32, x: &mut f32, speed: &mut f32) {
         *speed *= -1.0;
         *x = 1.0 + time_interval * (*speed);
     } else if *x < 0.0 {
-        *speed *= 1.0;
-        *x = 1.0 + time_interval * (*speed);
+        *speed *= -1.0;
+        *x = time_interval * (*speed);
     }
 }
 
