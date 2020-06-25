@@ -21,6 +21,30 @@ pub fn accumulate_wave_to_height_field(
     max_height: f32,
     height_field: &mut [f32; BUFFER_SIZE],
 ) {
+    let quarter_wave_length: f32 = 0.25 * wave_length;
+    let start: i32 = ((x - quarter_wave_length) * (BUFFER_SIZE as f32)) as i32;
+    let end: i32 = ((x + quarter_wave_length) * (BUFFER_SIZE as f32)) as i32;
+
+    for i in start..end {
+        let mut i_new: i32 = i;
+
+        if i < 0 {
+            i_new = -i - 1;
+        } else if i >= BUFFER_SIZE as i32 {
+            i_new = 2 * BUFFER_SIZE as i32 - i - 1;
+        }
+
+        let distance: f32 = ((i as f32 + 0.5) / BUFFER_SIZE as f32 - x).abs();
+        let height: f32 = max_height
+            * 0.5
+            * ((distance * std::f32::consts::PI / quarter_wave_length)
+                .min(std::f32::consts::PI)
+                .cos()
+                + 1.0);
+
+        height_field[i_new as usize] += height;
+    }
+
     for height in height_field.iter_mut() {
         *height = x + wave_length + max_height;
     }
