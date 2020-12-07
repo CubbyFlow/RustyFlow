@@ -20,3 +20,5 @@ jobs:
       run: cargo test --all
     - name: Run Rustfmt
       run: cargo fmt --all -- --check
+    - name: Upload to codecov.io
+      uses: codecov/codecov-action@v1.0.2
