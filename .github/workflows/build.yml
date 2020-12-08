@@ -1,4 +1,4 @@
-name: Aduit
+name: Build
 
 on:
   push:
