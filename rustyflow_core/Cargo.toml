@@ -6,11 +6,9 @@ authors = [
 ]
 edition = "2018"
 description = "RustyFlow core"
-keywords = [ "fluid", "simulation", "particle", "grid" ]
 
 repository = "https://github.com/CubbyFlow/RustyFlow"
 
-readme = "README.md"
 license = "MIT"
 
 [lib]
