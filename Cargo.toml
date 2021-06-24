@@ -1,2 +1,20 @@
+[package]
+name = "rustyflow"
+version = "0.0.1"
+authors = [
+    "Chris Ohk <utilforever@gmail.com>",
+]
+edition = "2018"
+description = "Re-implementation of CubbyFlow in Rust"
+keywords = [ "fluid", "simulation", "particle", "grid" ]
+
+repository = "https://github.com/CubbyFlow/RustyFlow"
+
+readme = "README.md"
+license = "MIT"
+
+[lib]
+crate-type = ["lib"]
+
 [workspace]
-members = [ "build/rustyflow", "examples" ]
+members = [ "rustyflow", "examples" ]
