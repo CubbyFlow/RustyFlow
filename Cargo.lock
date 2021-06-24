@@ -4,10 +4,13 @@
 name = "examples"
 version = "0.1.0"
 dependencies = [
- "rustyflow 0.1.0",
+ "rustyflow_core",
 ]
 
 [[package]]
 name = "rustyflow"
-version = "0.1.0"
+version = "0.0.1"
 
+[[package]]
+name = "rustyflow_core"
+version = "0.0.1"
